@@ -1,5 +1,5 @@
 <h2>My Heroes</h2>
-<ul class="heroes">
+<ul class="heroes" style="float:left">
   <li *ngFor="let hero of heroes"
     [class.selected]="hero === selectedHero"
     (click)="onSelect(hero)">
@@ -7,14 +7,21 @@
   </li>
 </ul>
 
-<div *ngIf="selectedHero">
+<div *ngIf="selectedHero" style="float:right 50%">
 
-  <h2>{{selectedHero.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedHero.id}}</div>
+  <h2 style="position: relative; top: 5px">{{selectedHero.name | uppercase}}</h2>
+  <div><span>Id: </span>{{selectedHero.id}}</div>
   <div>
-    <label>name:
+    <label>Name:
       <input [(ngModel)]="selectedHero.name" placeholder="name"/>
-    </label>
+    </label>   
+  
   </div>
 
+  <div>
+    Image:    
+    <br>
+    <span><img [src]="selectedHero.imageUrl" width="200px" height="200px" alt="hero"></span>
+  </div>
 </div>
+
